@@ -49,24 +49,24 @@ export const MedalForm = ({ saveMedalList, updateMedalList }) => {
   const handleInputChange = (e) => {
     const { id, value } = e.target;
 
-        // 숫자 입력 검증 및 0 이상만 입력 받기
-        if (id === "goldMedals" || id === "silverMedals" || id === "bronzeMedals") {
-          const numValue = Number(value);
-          if (isNaN(numValue) || numValue < 0) {
-            alert("메달 개수는 0 이상이어야 합니다.");
-            return;
-          }
-          setCountry((prevCountry) => ({
-            ...prevCountry,
-            [id]: numValue || 0, // 0 또는 양의 숫자만 설정
-          }));
-        } else {
-          setCountry((prevCountry) => ({
-            ...prevCountry,
-            [id]: value,
-          }));
-        }
-      };
+    // 숫자 입력 검증 및 0 이상만 입력 받기
+    if (id === "goldMedals" || id === "silverMedals" || id === "bronzeMedals") {
+      const numValue = Number(value);
+      if (isNaN(numValue) || numValue < 0) {
+        alert("메달 개수는 0 이상이어야 합니다.");
+        return;
+      }
+      setCountry((prevCountry) => ({
+        ...prevCountry,
+        [id]: numValue || 0, // 0 또는 양의 숫자만 설정
+      }));
+    } else {
+      setCountry((prevCountry) => ({
+        ...prevCountry,
+        [id]: value,
+      }));
+    }
+  };
 
   // 국가추가시 버튼 클릭시 확인
   const handleFormSubmit = (e) => {
