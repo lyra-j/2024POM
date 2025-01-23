@@ -5,20 +5,12 @@ import InputBox from "./InputBox";
 export const MedalForm = ({ saveMedalList, updateMedalList }) => {
   // 나라별 금, 은, 동 메달 객체형으로 셋팅
   const [country, setCountry] = useState({
+    id: crypto.randomUUID(),
     countryName: "",
-    goldMedals: "",
-    silverMedals: "",
-    bronzeMedals: "",
+    goldMedals: 0,
+    silverMedals: 0,
+    bronzeMedals: 0,
   });
-
-  const init = () => {
-    setCountry({
-      countryName: "",
-      goldMedals: 0,
-      silverMedals: 0,
-      bronzeMedals: 0,
-    });
-  };
 
   const inputList = [
     {
@@ -83,7 +75,7 @@ export const MedalForm = ({ saveMedalList, updateMedalList }) => {
 
     saveMedalList(country);
     alert(`${country.countryName}이 추가되었습니다!`);
-    init();
+
   };
 
   return (
