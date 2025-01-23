@@ -12,6 +12,16 @@ export const MedalForm = ({ saveMedalList, updateMedalList }) => {
     bronzeMedals: 0,
   });
 
+  const init = () => {
+    setCountry({
+      id: crypto.randomUUID(),
+      countryName: "",
+      goldMedals: 0,
+      silverMedals: 0,
+      bronzeMedals: 0,
+    });
+  };
+
   const inputList = [
     {
       label: "국가명",
@@ -39,17 +49,24 @@ export const MedalForm = ({ saveMedalList, updateMedalList }) => {
   const handleInputChange = (e) => {
     const { id, value } = e.target;
 
-    setCountry((prevCountry) => ({
-      ...prevCountry,
-      [id]: value,
-    }));
-
-    // 메달입력시 숫자 확인
-    if (id === "goldMedals" || id === "silverMedals" || id === "bronzeMedals") {
-      const updatedCountry = { ...country, [id]: Number(value) || 0 };
-      setCountry(updatedCountry);
-    }
-  };
+        // 숫자 입력 검증 및 0 이상만 입력 받기
+        if (id === "goldMedals" || id === "silverMedals" || id === "bronzeMedals") {
+          const numValue = Number(value);
+          if (isNaN(numValue) || numValue < 0) {
+            alert("메달 개수는 0 이상이어야 합니다.");
+            return;
+          }
+          setCountry((prevCountry) => ({
+            ...prevCountry,
+            [id]: numValue || 0, // 0 또는 양의 숫자만 설정
+          }));
+        } else {
+          setCountry((prevCountry) => ({
+            ...prevCountry,
+            [id]: value,
+          }));
+        }
+      };
 
   // 국가추가시 버튼 클릭시 확인
   const handleFormSubmit = (e) => {
@@ -75,7 +92,7 @@ export const MedalForm = ({ saveMedalList, updateMedalList }) => {
 
     saveMedalList(country);
     alert(`${country.countryName}이 추가되었습니다!`);
-
+    init();
   };
 
   return (
