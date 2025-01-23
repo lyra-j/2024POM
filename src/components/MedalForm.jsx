@@ -11,6 +11,15 @@ export const MedalForm = ({ saveMedalList, updateMedalList }) => {
     bronzeMedals: "",
   });
 
+  const init = () => {
+    setCountry({
+      countryName: "",
+      goldMedals: 0,
+      silverMedals: 0,
+      bronzeMedals: 0,
+    });
+  };
+
   const inputList = [
     {
       label: "국가명",
@@ -63,8 +72,8 @@ export const MedalForm = ({ saveMedalList, updateMedalList }) => {
     const storedCountries = JSON.parse(localStorage.getItem("medalList")) || [];
 
     // 이미 등록된 국가가 있는지 확인
-    const hasCountry = storedCountries.some((item) => {
-      return item.countryName === country.countryName;
+    const hasCountry = storedCountries.some((list) => {
+      return list.countryName === country.countryName;
     });
 
     if (hasCountry) {
@@ -73,6 +82,8 @@ export const MedalForm = ({ saveMedalList, updateMedalList }) => {
     }
 
     saveMedalList(country);
+    alert(`${country.countryName}이 추가되었습니다!`);
+    init();
   };
 
   return (
