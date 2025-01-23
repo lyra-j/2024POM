@@ -20,10 +20,16 @@ const App = () => {
 
   // 선택된 메달 정보 로컬 스토리지에서 삭제 // 하쒸..또 return 냠냠ㅠ
   const deleteMedalList = (country) => {
-    const updateMedalList = medalList.filter((item) => {
-      return item.countryName !== country.countryName;
-    });
-    updateLocalStorage(setMedalList, "medalList", updateMedalList);
+    const deleteCheckAlert = confirm("해당 국가를 삭제하시겠습니까?");
+    if (deleteCheckAlert === true) {
+      alert("삭제되었습니다.");
+      const updateMedalList = medalList.filter((list) => {
+        return list.countryName !== country.countryName;
+      });
+      updateLocalStorage(setMedalList, "medalList", updateMedalList);
+    } else {
+      return false;
+    }
   };
 
   // 메달 정보 업데이트
@@ -44,6 +50,7 @@ const App = () => {
     });
 
     updateLocalStorage(setMedalList, "medalList", updatedMedalList);
+    alert(`${updatedCountry.countryName}의 메달 개수가 변경되었습니다!`);
   };
 
   return (
