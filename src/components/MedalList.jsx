@@ -53,7 +53,7 @@ export const MedalList = ({ medalList, deleteMedalList }) => {
             <th>금메달</th>
             <th>은메달</th>
             <th>동메달</th>
-            <th>삭제</th>
+            <th>액션</th>
           </tr>
         </thead>
         <tbody>
