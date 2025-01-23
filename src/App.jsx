@@ -39,7 +39,17 @@ const App = () => {
     });
 
     if (!hasCountry) {
-      alert("먼저 국가를 추가해주세요");
+      alert("일치하는 국가명이 없습니다. 먼저 국가를 추가해주세요");
+      return;
+    }
+
+    // 메달 개수가 0 이상인지 체크
+    if (
+      updatedCountry.goldMedals < 0 ||
+      updatedCountry.silverMedals < 0 ||
+      updatedCountry.bronzeMedals < 0
+    ) {
+      alert("메달 개수는 0 이상이어야 합니다.");
       return;
     }
 
