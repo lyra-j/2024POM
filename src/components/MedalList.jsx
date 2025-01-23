@@ -8,6 +8,14 @@ export const MedalList = ({ medalList, deleteMedalList }) => {
 
   // 메달 정렬 함수
   const sortBy = (a, b) => {
+    // 총 메달 수로 정렬
+    if (sortMedal === "totalMedals") {
+      const totalA = a.goldMedals + a.silverMedals + a.bronzeMedals;
+      const totalB = b.goldMedals + b.silverMedals + b.bronzeMedals;
+      return totalB - totalA;
+    }
+
+    // 금, 은, 동 메달 기준 정렬
     if (b[sortMedal] !== a[sortMedal]) {
       return b[sortMedal] - a[sortMedal];
     }
@@ -35,6 +43,7 @@ export const MedalList = ({ medalList, deleteMedalList }) => {
         <option value="goldMedals">금메달</option>
         <option value="silverMedals">은메달</option>
         <option value="bronzeMedals">동메달</option>
+        <option value="totalMedals">총메달수</option>
       </select>
 
       <table>
@@ -48,11 +57,11 @@ export const MedalList = ({ medalList, deleteMedalList }) => {
           </tr>
         </thead>
         <tbody>
-          {sortedMedalList.map((data) => {
+          {sortedMedalList.map((item) => {
             return (
               <MedalItem
-                data={data}
-                key={data.countryName}
+                data={item}
+                key={item.countryName}
                 deleteMedalList={deleteMedalList}
               />
             );
