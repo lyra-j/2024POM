@@ -65,7 +65,7 @@ const App = () => {
 
   return (
     <>
-      <header>
+      <section>
         <h1>2024 Paris Olympic</h1>
         <div>
           <MedalForm
@@ -76,14 +76,17 @@ const App = () => {
             <p>아직 등록된 국가가 없습니다. 메달을 추적하세요!</p>
           )}
         </div>
-      </header>
 
-      <main>
-        {/* 메달 집계 리스트가 표시될 자리 */}
-        {medalList.length > 0 && (
-          <MedalList medalList={medalList} deleteMedalList={deleteMedalList} />
-        )}
-      </main>
+        <main>
+          {/* 메달 집계 리스트가 표시될 자리 */}
+          {medalList.length > 0 && (
+            <MedalList
+              medalList={medalList}
+              deleteMedalList={deleteMedalList}
+            />
+          )}
+        </main>
+      </section>
     </>
   );
 };
