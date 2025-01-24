@@ -22,26 +22,30 @@ export const MedalForm = ({ saveMedalList, updateMedalList }) => {
     });
   };
 
-  const inputList = [
+  const inputFields = [
     {
       label: "국가명",
       id: "countryName",
       value: country.countryName,
+      placeholder: "국가명 입력",
     },
     {
       label: "금메달",
       id: "goldMedals",
       value: country.goldMedals,
+      placeholder: "0",
     },
     {
       label: "은메달",
       id: "silverMedals",
       value: country.silverMedals,
+      placeholder: "0",
     },
     {
       label: "동메달",
       id: "bronzeMedals",
       value: country.bronzeMedals,
+      placeholder: "0",
     },
   ];
 
@@ -96,28 +100,29 @@ export const MedalForm = ({ saveMedalList, updateMedalList }) => {
   };
 
   return (
-    <form
+    <form className="input-container"
       onSubmit={(e) => {
         handleFormSubmit(e);
       }}
     >
       {/* 국가명, 금메달, 은메달, 동메달  // map은 return !! */}
-      {inputList.map((input) => {
+      {inputFields.map((input) => {
         return (
           <InputBox
             label={input.label}
             key={input.id}
             id={input.id}
             value={input.value}
+            placeholder={input.placeholder}
             onChange={(e) => handleInputChange(e)}
           />
         );
       })}
 
-      <div>
+      <div className="button-wrap">
         {/* 추가, 업데이트 */}
         <Button type="submit">국가 추가</Button>
-        <Button type="button" onClick={() => updateMedalList(country)}>
+        <Button type="button" className="btn-update" onClick={() => updateMedalList(country)}>
           업데이트
         </Button>
       </div>
