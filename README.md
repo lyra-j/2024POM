@@ -9,7 +9,7 @@ React Practice : 2024 Paris Olympic Medal CRUD
 
 &nbsp; **[Frontend / React & JS / 개인 과제]**
 <br />
-&nbsp; 📆 작업 기간 2025.01.21 ~ 2025.01.24 <br />
+&nbsp; 📆 작업 기간 : 2025.01.21 ~ 2025.01.24 <br />
 &nbsp; React를 활용하여 CRUD 기능을 구현한 2024 파리 올림픽 메달 트래커입니다. <br />
 <br />
 ![React](https://img.shields.io/badge/-React-61DAFB?&logo=react&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?&logo=javascript&logoColor=white) ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?&logo=css3&logoColor=white)
@@ -35,14 +35,14 @@ React Practice : 2024 Paris Olympic Medal CRUD
 📁 src/
 |- components/
 | |-Button.jsx  
- | |-InputBox.jsx
+| |-InputBox.jsx
 | |-MedalForm.jsx :국가별 메달 갯수 입력받는 폼 & 저장
 | |-MeladItem.jsx : 저장받은 데이터
 | |-MedalList.jsx : 데이터들이 모여서 표기되는 곳
 |
 |- utils/
 | |-localStorage.js  
- |
+|
 |- App.tsx
 ```
 
