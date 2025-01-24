@@ -10,8 +10,7 @@ export const MedalItem = ({ data, deleteMedalList }) => {
         <td>{data.silverMedals}</td>
         <td>{data.bronzeMedals}</td>
         <td>
-          {" "}
-          <Button type="button" onClick={() => deleteMedalList(data)}>
+          <Button type="button" className="btn-delete" onClick={() => deleteMedalList(data)}>
             삭제
           </Button>
         </td>

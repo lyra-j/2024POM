@@ -38,36 +38,37 @@ export const MedalList = ({ medalList, deleteMedalList }) => {
   };
 
   return (
-    <div>
-      <select onChange={sortMedalList} value={sortMedal}>
+    <div className="medal-list-container">
+      <select id="medalSortSelect" onChange={sortMedalList} value={sortMedal}>
         <option value="goldMedals">금메달</option>
         <option value="silverMedals">은메달</option>
         <option value="bronzeMedals">동메달</option>
         <option value="totalMedals">총메달수</option>
       </select>
-
-      <table>
-        <thead>
-          <tr>
-            <th>국가명</th>
-            <th>금메달</th>
-            <th>은메달</th>
-            <th>동메달</th>
-            <th>액션</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedMedalList.map((item) => {
-            return (
-              <MedalItem
-                data={item}
-                key={item.countryName}
-                deleteMedalList={deleteMedalList}
-              />
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="medal-list-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>국가명</th>
+              <th>금메달</th>
+              <th>은메달</th>
+              <th>동메달</th>
+              <th>액션</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sortedMedalList.map((item) => {
+              return (
+                <MedalItem
+                  data={item}
+                  key={item.countryName}
+                  deleteMedalList={deleteMedalList}
+                />
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
